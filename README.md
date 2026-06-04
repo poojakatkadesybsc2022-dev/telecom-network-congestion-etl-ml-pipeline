@@ -1,25 +1,31 @@
-# Telecom Network Congestion Prediction using ETL Pipeline and Machine Learning
+# 📡 Telecom Network Congestion Prediction (End-to-End ETL + ML Pipeline)
 
-## Project Overview
+## 🚀 Project Overview
 
-This project demonstrates an end-to-end ETL pipeline and machine learning workflow for predicting telecom network congestion.
+This project demonstrates an **end-to-end Data Engineering + Machine Learning pipeline** for predicting telecom network congestion using real-world inspired network metrics.
 
-The pipeline extracts raw telecom network data from MySQL, performs data cleaning and feature engineering using Python, trains a Random Forest classification model, and loads prediction results back into MySQL.
+The system extracts data from MySQL, performs data cleaning & feature engineering in Python, trains a Machine Learning model, and stores predictions back into MySQL for analytics and dashboarding.
 
 ---
 
-## Tech Stack
+## ⚙️ Architecture
+
+**MySQL → Python ETL → Feature Engineering → ML Model → Predictions → MySQL → Power BI Dashboard**
+
+---
+
+## 🛠️ Tech Stack
 
 - Python
-- Pandas
+- Pandas, NumPy
 - MySQL
-- SQLAlchemy
-- PyMySQL
-- Scikit-Learn
+- SQLAlchemy, PyMySQL
+- Scikit-learn
+- Power BI (Visualization)
 
 ---
 
-## Dataset Features
+## 📊 Dataset Features
 
 - timestamp
 - tower_id
@@ -28,68 +34,78 @@ The pipeline extracts raw telecom network data from MySQL, performs data cleanin
 - upload_speed
 - latency
 - weather
-- congestion
+- congestion (Target Variable)
 
 ---
 
-## ETL Workflow
+## 🔄 ETL Pipeline
 
 ### Extract
-- Imported telecom network data from MySQL
-- Loaded data into Pandas DataFrame
+- Data pulled from MySQL database
 
 ### Transform
-- Missing value validation
-- Duplicate record validation
-- Datetime conversion
-- Feature engineering
+- Missing value handling
+- Duplicate removal
+- Timestamp feature extraction (hour, day, month, weekday)
 - Weather encoding
+- Feature engineering
 
 ### Load
-- Stored transformed data into MySQL
-- Stored prediction results into MySQL
+- Cleaned dataset stored back into MySQL
+- ML predictions stored in `network_predictions` table
 
 ---
 
-## Machine Learning
+## 🤖 Machine Learning Model
 
-Model Used:
-- Random Forest Classifier
-
-Train-Test Split:
-- 80% Training
-- 20% Testing
-
-Model Accuracy:
-- 99.86%
+- Algorithm: Random Forest Classifier
+- Train/Test Split: 80/20
+- Accuracy: **99.86%**
 
 ---
 
-## Feature Importance Analysis
+## 📌 Key Insights
 
-| Feature | Importance |
-|----------|----------|
-| Users Connected | 44.87% |
-| Latency | 43.76% |
-| Download Speed | 2.95% |
-| Upload Speed | 2.42% |
-| Hour | 1.79% |
-| Day | 1.74% |
-| Weather | 0.88% |
+- Users connected and latency are the strongest predictors of congestion
+- Weather has minimal impact on congestion
+- Peak congestion observed during high traffic hours
+- Model helps in proactive network optimization
 
 ---
 
-## Business Insights
+## 📈 Power BI Dashboard
 
-- Network congestion is primarily driven by the number of connected users.
-- High latency significantly increases the probability of congestion.
-- Weather conditions have minimal impact on congestion prediction.
-- The model can help telecom operators proactively identify congestion risks.
+- KPI Cards (Users, Latency, Congestion Events)
+- Congestion distribution by tower
+- Hourly congestion trend
+- Weather impact analysis
+- Actual vs Predicted congestion comparison
 
 ---
 
-## Project Results
+## 📁 Project Structure
 
-- Total Records Processed: 3605
-- Predictions Generated: 721
-- Model Accuracy: 99.86%
+```
+ETL_Telecom/
+│
+├── extract.py
+├── transform.py
+├── model.py
+├── requirements.txt
+├── README.md
+```
+
+---
+
+## 🎯 Business Value
+
+- Helps telecom operators predict congestion in advance
+- Improves network resource allocation
+- Reduces latency and improves user experience
+
+---
+
+## ⭐ Author
+
+Data Engineering + ML Project built for portfolio demonstration
+```
